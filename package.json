@@ -1,0 +1,19 @@
+{
+  "name": "youtubeclonecoding",
+  "version": "1.0.0",
+  "description": "Cloning Youtube with Vanilla and NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sosunnyproject/youtubeCloneCoding.git"
+  },
+  "author": "sosunnyproject",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sosunnyproject/youtubeCloneCoding/issues"
+  },
+  "homepage": "https://github.com/sosunnyproject/youtubeCloneCoding#readme"
+}
