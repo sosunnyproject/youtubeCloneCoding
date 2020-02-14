@@ -4,3 +4,5 @@ package-lock.json
 .npm
 node_modules/
 .node_modules/
+# remove already uploaded gitignore files in my github repo
+# https://stackoverflow.com/questions/50675829/remove-node-modules-from-git-in-vscode
