@@ -1,6 +1,8 @@
 // package.json > "scripts" : node index.js 커맨드를 npm start 커맨드로 대체
 
-const express = require('express');
+// const express = require('express');  // before babel
+import express from "express";      // after babel
+
 const app = express();
 const PORT = 4000;
 

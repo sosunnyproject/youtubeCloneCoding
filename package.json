@@ -13,10 +13,11 @@
   },
   "homepage": "https://github.com/sosunnyproject/youtubeCloneCoding#readme",
   "dependencies": {
+    "@babel/node": "^7.8.4",
     "express": "^4.16.3"
   },
-  "scripts":{
-    "start": "node index.js",
+  "scripts": {
+    "start": "babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
