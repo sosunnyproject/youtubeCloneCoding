@@ -1,2 +1,5 @@
 .fusebox/
 package-lock.json
+
+.npm
+node_modules/
