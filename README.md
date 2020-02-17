@@ -23,4 +23,10 @@ $ npm install @babel/core
 $ npm start # after babel, npm start is shortcut of command node index.js
 
 $ npm install nodemon -D
+# install packages that don't need to be included in dependencies
+# only for dev process, devDependencies
+# change in pacakge.json: "start": "nodemon --exec babel-node index.js",
+# autostart the server when code changes
+
+# ~~ tutorial 2.5
 ```
