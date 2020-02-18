@@ -11,22 +11,8 @@
 - https://academy.nomadcoders.co/p/javascript-fullstack-from-zero-to-hero
 - Feb/27/20 ~ #2.5
 
-## Setup
-```bash
-$ npm init
-$ npm install express
-$ node index.js
-
-$ npm install @babel/node
-$ npm install @babel/preset-env
-$ npm install @babel/core
-$ npm start # after babel, npm start is shortcut of command node index.js
-
-$ npm install nodemon -D
-# install packages that don't need to be included in dependencies
-# only for dev process, devDependencies
-# change in pacakge.json: "start": "nodemon --exec babel-node index.js",
-# autostart the server when code changes
-
-# ~~ tutorial 2.5
-```
+## Basic 
+- NodeJS: javascript outside of browser
+- Front: JS, Back: Node, Django, Laravel, ...
+- NodeJS: real-time, data processing, CRUD works
+- Django: hardware stuff, video processing, youtube/netflix videos, access memory/RAM powers
