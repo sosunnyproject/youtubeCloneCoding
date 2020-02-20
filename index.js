@@ -2,6 +2,10 @@
 
 // const express = require('express');  // before babel
 import express from "express";      // after babel
+import morgan from "morgan";
+import helmet from "helmet";
+import cookieParser from "cookieParser"; // to accpet info from cookie
+import bodyParser from "bodyParser";  // to accept info from body
 
 const app = express();
 const PORT = 4000;
@@ -16,6 +20,17 @@ const handleHome = (req, res) =>  res.send("Hello from home");    // answer some
 
 // es6 arrow function
 const handleProfile = (req, res) => res.send("You are on my profile");
+
+// middleware can kill the process
+// if you invoke res.send, instead of next();
+const middleware = (req, res, next) => res.send("not happening");
+
+// middlewares
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.user(bodyParser.urlencoded({extended: true}));
+app.use(helmet());
+app.user(morgan("dev")); // dev, common, ...
 
 app.get("/", handleHome);
 app.get("/profile", handleProfile)
