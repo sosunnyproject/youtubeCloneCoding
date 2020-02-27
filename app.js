@@ -6,6 +6,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser"; // to accpet info from cookie
 import bodyParser from "body-parser";  // to accept info from body
+import {userRouter} from "./router";  // use {} to import something that is not 'export default ...'
 
 const app = express();
 
@@ -22,7 +23,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(helmet());
 app.use(morgan("dev")); // dev, common, ...
 
-app.get("/", handleHome);
-app.get("/profile", handleProfile);
+// .get --> .use if you use router.js
+app.use("/", handleHome);
+app.use("/profile", handleProfile);
+app.use("/user", userRouter);
 
 export default app;
