@@ -6,14 +6,11 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser"; // to accpet info from cookie
 import bodyParser from "body-parser";  // to accept info from body
-import {userRouter} from "./router";  // use {} to import something that is not 'export default ...'
+import {userRouter} from "./routers/userRouter";  // use {} to import something that is not 'export default ...'
+import {videoRouter} from "./routers/videoRouter";  
+import {globalRouter} from "./routers/globalRouter";
 
 const app = express();
-
-const handleHome = (req, res) =>  res.send("Hello from home");    // answer something
-
-const handleProfile = (req, res) => res.send("You are on my profile");
-
 const middleware = (req, res, next) => res.send("not happening");
 
 // middlewares
@@ -24,8 +21,8 @@ app.use(helmet());
 app.use(morgan("dev")); // dev, common, ...
 
 // .get --> .use if you use router.js
-app.use("/", handleHome);
-app.use("/profile", handleProfile);
+app.use("/", globalRouter);
 app.use("/user", userRouter);
+app.use("/video", videoRouter);
 
 export default app;
