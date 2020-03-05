@@ -12,14 +12,13 @@ import globalRouter from "./routers/globalRouter";
 import routes from "./routes";
 
 const app = express();
-// const middleware = (req, res, next) => res.send("not happening");
 
 // middlewares
-app.use(cookieParser());
-app.use(bodyParser.json());
+app.use(cookieParser());                    // cookies when userAuth
+app.use(bodyParser.json());                 // what content is the user sending to the website: form, json, video, data, such body types
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(helmet());
-app.use(morgan("dev")); // dev, common, ...
+app.use(helmet());                      // security for express app
+app.use(morgan("dev"));                 // logger
 
 
 // .get --> .use if you use router.js
