@@ -17,8 +17,8 @@ const app = express();
 app.set("view engine", "pug");
 
 // middlewares
-app.use(cookieParser());                    // cookies when userAuth
-app.use(bodyParser.json());                 // what content is the user sending to the website: form, json, video, data, such body types
+app.use(cookieParser());                 // cookies when userAuth
+app.use(bodyParser.json());              // what content is the user sending to the website: form, json, video, data, such body types
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());                      // security for express app
 app.use(morgan("dev"));                 // logger
