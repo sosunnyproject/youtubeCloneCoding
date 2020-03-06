@@ -13,6 +13,9 @@ import routes from "./routes";
 
 const app = express();
 
+//pug
+app.set("view engine", "pug");
+
 // middlewares
 app.use(cookieParser());                    // cookies when userAuth
 app.use(bodyParser.json());                 // what content is the user sending to the website: form, json, video, data, such body types
