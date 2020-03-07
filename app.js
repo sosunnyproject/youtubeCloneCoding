@@ -17,6 +17,7 @@ const app = express();
 app.use(helmet());
 app.set("view engine", "pug");
 app.use(cookieParser());                 // cookies when userAuth
+
 app.use(bodyParser.json());              // what content is the user sending to the website: form, json, video, data, such body types
 app.use(bodyParser.urlencoded({ extended: true }));
 
