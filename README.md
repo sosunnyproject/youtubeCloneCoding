@@ -2,9 +2,20 @@
 - 2020, following tutorials by nomadcoders.co
 - Cloning Youtube with Vanilla and NodeJS
 
+## Pages:
+- [ ] Home
+- [ ] Join
+- [x] Search
+- [ ] User Detail
+- [ ] Edit Profile
+- [ ] Upload
+- [ ] Edit Video
+- [ ] Change Password
+
 ## Tutorials
 - https://academy.nomadcoders.co/p/javascript-fullstack-from-zero-to-hero
 - ~ #2.5 (2020/2/26)
+- ~ #3.1 (2020/3/7)
 
 ## Basic 
 - NodeJS: javascript outside of browser
