@@ -10,19 +10,18 @@ import userRouter from "./routers/userRouter";  // use {} to import something th
 import videoRouter from "./routers/videoRouter";  
 import globalRouter from "./routers/globalRouter";
 import routes from "./routes";
+import { localsMiddleware } from './middlewares';
 
 const app = express();
 
-//pug
+app.use(helmet());
 app.set("view engine", "pug");
-
-// middlewares
 app.use(cookieParser());                 // cookies when userAuth
 app.use(bodyParser.json());              // what content is the user sending to the website: form, json, video, data, such body types
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(helmet());                      // security for express app
-app.use(morgan("dev"));                 // logger
 
+app.use(morgan("dev"));                 // logger
+app.use(localsMiddleware);
 
 // .get --> .use if you use router.js
 app.use(routes.home, globalRouter);
