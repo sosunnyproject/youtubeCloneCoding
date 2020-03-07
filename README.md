@@ -4,10 +4,11 @@
 
 ## Pages:
 - [ ] Home
-- [ ] Join
+- [x] Join
+- [x] Login
 - [x] Search
 - [ ] User Detail
-- [ ] Edit Profile
+- [x] Edit Profile
 - [ ] Upload
 - [ ] Edit Video
 - [ ] Change Password
