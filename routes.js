@@ -20,6 +20,10 @@ const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
 const VIDEO_DETAIL = "/:id";
 
+// API
+const API = "/api";
+const REGISTER_VIEW = "/:id/view";
+
 
 const routes = {
     home: HOME,
@@ -47,7 +51,9 @@ const routes = {
         }
     },
     editVideo: EDIT_VIDEO,
-    deleteVideo: DELETE_VIDEO
+    deleteVideo: DELETE_VIDEO, 
+    api: API,
+    registerView: REGISTER_VIEW
 };
 
 export default routes;

@@ -22,3 +22,21 @@ export const videoDetail = (req, res) => res.render("videoDetail", {pageTitle: "
 export const editVideo = (req, res) => res.render("editVideo", {pageTitle: "Edit Video Detail"});
 export const deleteVideo = (req, res) => res.render("deleteVideo", {pageTitle: "Delete Video"});
 
+// Register Video View
+
+export const postRegisterView = async(req, res) => {
+    const {
+        params: {id}
+    } = req;
+    try {
+        const video = await Video.findById(id);
+        video.views += 1;
+        video.save();
+        video.status(200);
+    } catch (error) {
+        res.status(400) // bad request
+    } finally {
+        res.end();
+    }
+
+}

@@ -9,6 +9,7 @@ import bodyParser from "body-parser";  // to accept info from body
 import userRouter from "./routers/userRouter";  // use {} to import something that is not 'export default ...'
 import videoRouter from "./routers/videoRouter";  
 import globalRouter from "./routers/globalRouter";
+import apiRouter from "./touers/apiRouter";
 import routes from "./routes";
 import { localsMiddleware } from './middlewares';
 
@@ -28,5 +29,6 @@ app.use(localsMiddleware);
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
+app.use(routes.api, apiRouter);
 
 export default app;
