@@ -37,6 +37,8 @@ $ npm install @babel/core
 $ npm install cookie-parser body-parser
 
 $ npm install nodemon -D
+
+$ npm install webpack webpack-cli
 # install packages that don't need to be included in dependencies
 # only for dev process, devDependencies
 # change in pacakge.json: "start": "nodemon --exec babel-node index.js",
