@@ -1,5 +1,6 @@
 // start the application by calling the app.js
 
+import "./db"
 import app from "./app";
 
 const PORT = 4000;
