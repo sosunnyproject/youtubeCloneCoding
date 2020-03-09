@@ -1,6 +1,6 @@
 .fusebox/
 package-lock.json
-
+.env
 .npm
 node_modules/
 .node_modules/
