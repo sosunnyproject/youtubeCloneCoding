@@ -30,14 +30,10 @@ $ npm init
 $ npm install express
 $ node index.js
 
-$ npm install @babel/node
-$ npm install @babel/preset-env
-$ npm install @babel/core
-
+$ npm install @babel/node @babel/preset-env @babel/core
 $ npm install cookie-parser body-parser
 
 $ npm install nodemon -D
-
 $ npm install dotenv
 $ npm install webpack webpack-cli
 # install packages that don't need to be included in dependencies
@@ -57,3 +53,14 @@ $ npm start # after babel, npm start is shortcut of command node index.js
     $ npm install morgan
     $ npm install helmet
     ```
+
+### 3.0 Mongodb install
+- https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+
+```bash
+$ brew services start mongodb-community@4.2
+$ mongo  # check if mongo is running
+```
+
+### expected schedule
+- https://www.notion.so/sunny1103/33b5bedfddd9420b8600d842297e3b3c?v=168c896bb89f483fba454d279e68b147
