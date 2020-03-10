@@ -62,5 +62,12 @@ $ brew services start mongodb-community@4.2
 $ mongo  # check if mongo is running
 ```
 
+- windows 10 설치: 윈도우 10에서 다운로드 > 설치 후 mongod가 실행되지 않는다면 다음을 따라서 환경변수 추가를 해보세요.
+    1. [내컴퓨터] 우클릭 > [고급시스템설정] > [환경변수(N)]
+    2. 시스템변수 리스트 중 'Path'를 선택하고 편집을 선택한 후 'Mongodb의 설치경로￦bin'을 추가
+    3. vscode 재실행 후 터미널에 'mongod'입력
+
+- mongodb is perfect for json file
+
 ### expected schedule
 - https://www.notion.so/sunny1103/33b5bedfddd9420b8600d842297e3b3c?v=168c896bb89f483fba454d279e68b147
