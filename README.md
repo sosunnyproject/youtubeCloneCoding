@@ -66,6 +66,13 @@ $ mongo  # check if mongo is running
     1. [내컴퓨터] 우클릭 > [고급시스템설정] > [환경변수(N)]
     2. 시스템변수 리스트 중 'Path'를 선택하고 편집을 선택한 후 'Mongodb의 설치경로￦bin'을 추가
     3. vscode 재실행 후 터미널에 'mongod'입력
+- https://medium.com/stackfame/run-mongodb-as-a-service-in-windows-b0acd3a4b712
+
+```bash
+// open command prompt as administrator
+$ net start mongodb
+$ net stop mongodb
+```
 
 - mongodb is perfect for json file
 
