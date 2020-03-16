@@ -57,7 +57,12 @@ const routes = {
             return EDIT_VIDEO;
         }
     } ,
-    deleteVideo: DELETE_VIDEO, 
+    deleteVideo: (id) => {
+        if (id) {
+            return `/videos/${id}`
+        }
+    },
+     
     api: API,
     registerView: REGISTER_VIEW
 };
