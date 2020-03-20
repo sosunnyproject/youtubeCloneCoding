@@ -62,7 +62,7 @@ export const getEditVideo = async (req, res) => {
     
 }
 
-export const postEditVideo = (req, res) => {
+export const postEditVideo = async (req, res) => {
     const {
         params: {id},
         body: {title, description}  // same parameter names as Video.js Model's properties
