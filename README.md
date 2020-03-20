@@ -76,5 +76,9 @@ $ net stop mongodb
 
 - mongodb is perfect for json file
 
+## 3.12 Regex
+- regex101.com
+- for mongodb data 
+
 ### expected schedule
 - https://www.notion.so/sunny1103/33b5bedfddd9420b8600d842297e3b3c?v=168c896bb89f483fba454d279e68b147

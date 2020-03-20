@@ -45,14 +45,14 @@ const routes = {
     upload: UPLOAD,
     videoDetail: id => {
         if(id) {
-            return `${id}`
+            return `/videos/${id}`
         } else {
             return VIDEO_DETAIL
         }
     },
     editVideo: (id) => {
         if (id) {
-            return `/videos/{id}/edit`;
+            return `/videos/${id}/edit`;
         } else {
             return EDIT_VIDEO;
         }
@@ -61,7 +61,7 @@ const routes = {
         if (id) {
             return `/videos/${id}/delete`
         } else {
-            return DELETE_VIDEO
+            return DELETE_VIDEO;
         }
     },
      
