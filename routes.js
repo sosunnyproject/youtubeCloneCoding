@@ -16,9 +16,10 @@ const USER_DETAIL = "/:id";
 // Videos
 const VIDEOS = "/videos";
 const UPLOAD = "/upload";
+const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
-const VIDEO_DETAIL = "/:id";
+
 
 // API
 const API = "/api";
@@ -33,7 +34,7 @@ const routes = {
     search: SEARCH,
     users: USERS,
     userDetail: id => {
-        if(id) {
+        if (id) {
             return `/users/${id}`;
         } else {
             return USER_DETAIL;
@@ -44,10 +45,12 @@ const routes = {
     videos: VIDEOS,
     upload: UPLOAD,
     videoDetail: id => {
-        if(id) {
-            return `/videos/${id}`
+        if (id) {
+            console.log("/////// routes.js videoDetail: ", id)
+            return `/videos/${id}`;
         } else {
-            return VIDEO_DETAIL
+            console.log("/////// routes.js videoDetail: none");
+            return VIDEO_DETAIL;
         }
     },
     editVideo: (id) => {
@@ -56,7 +59,7 @@ const routes = {
         } else {
             return EDIT_VIDEO;
         }
-    } ,
+    },
     deleteVideo: (id) => {
         if (id) {
             return `/videos/${id}/delete`
@@ -64,7 +67,7 @@ const routes = {
             return DELETE_VIDEO;
         }
     },
-     
+
     api: API,
     registerView: REGISTER_VIEW
 };

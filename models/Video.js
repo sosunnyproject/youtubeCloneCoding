@@ -20,9 +20,9 @@ const VideoSchema = new mongoose.Schema({
     },
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref:"Comment"
+        ref: "Comment"
     }]
 })
-
+// console.log(VideoSchema.fileUrl, VideoSchema.title);
 const model = mongoose.model("Video", VideoSchema);
 export default model;

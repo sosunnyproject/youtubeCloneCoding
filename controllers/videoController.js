@@ -41,7 +41,8 @@ export const postUpload = async (req, res) => {
         title,
         description
     });
-    console.log(newVideo);
+    console.log("/////// videoController: postUpload", newVideo);
+    console.log("////// fileUrl: path: ", newVideo.fileUrl, newVideo.id);
     res.redirect(routes.videoDetail(newVideo.id));
 }
 
@@ -62,6 +63,7 @@ export const getEditVideo = async (req, res) => {
         params: { id }
     } = req;
     try {
+        console.log("///// getEditVideo id: ", id);
         const video = await Video.findById(id);
         res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
     } catch (error) {
