@@ -8,3 +8,6 @@ node_modules/
 # https://stackoverflow.com/questions/50675829/remove-node-modules-from-git-in-vscode
 videos/
 videos
+static
+uploads
+.serverless

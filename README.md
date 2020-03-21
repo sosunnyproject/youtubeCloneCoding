@@ -97,3 +97,7 @@ $ net stop mongodb
 - we want to change scss to css, extract the text and save it into css file
     - [extract text plugin: webpack](https://github.com/webpack-contrib/extract-text-webpack-plugin)
 - [postcss](www.postcss.org), [autoprefixer](https://github.com/postcss/autoprefixer)
+- package.json:   "dev:assets": "WEBPACK_ENV=development webpack -w" 
+    - 파일 바껴도 계속 자동으로 run 하게끔 수정
+- babel-loader
+- [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill)

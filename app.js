@@ -1,4 +1,5 @@
 // package.json > "scripts" : node index.js 커맨드를 npm start 커맨드로 대체
+// this is my server
 
 // const express = require('express');  // before babel
 import express from "express";      // after babel
@@ -7,7 +8,7 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser"; // to accpet info from cookie
 import bodyParser from "body-parser";  // to accept info from body
 import userRouter from "./routers/userRouter";  // use {} to import something that is not 'export default ...'
-import videoRouter from "./routers/videoRouter";  
+import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
 import apiRouter from "./routers/apiRouter";
 import routes from "./routes";
@@ -17,7 +18,9 @@ const app = express();
 
 app.use(helmet());
 app.set("view engine", "pug");
-app.use("uploads", express.static("uploads")); // goes to uploads folder directory
+app.use("/uploads", express.static("uploads")); // goes to uploads folder directory
+app.use("/static", express.static("static"));
+
 app.use(cookieParser());                 // cookies when userAuth
 
 app.use(bodyParser.json());              // what content is the user sending to the website: form, json, video, data, such body types
