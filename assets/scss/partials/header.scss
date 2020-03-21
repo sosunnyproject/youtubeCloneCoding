@@ -1,18 +1,18 @@
 .header {
-    background-color: $ed;
+    background-color: $red;
     margin-bottom: 50px;
     .header__wrapper {
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 5px 0px;
+        padding: 0.5rem 2rem;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         align-items: center;
         .header__column{
             i {
                 color: white;
-                font-size: 40px;
+                font-size: 30px;
             }
             &:nth-child(2) {
                 width: 100%;
