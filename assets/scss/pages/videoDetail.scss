@@ -3,8 +3,36 @@
     flex-direction: column;
     align-items: center;
     .video__info {
-        margin-top: 50px;
+        margin-top: 25px;
         width: 100%;
         max-width: 850px;
+        button {
+            width: 100px;
+            margin-bottom: 25px;
+        }
+        .video__title,
+        .video__views,
+        .video__description{
+            display: block;
+            margin-bottom: 15px;
+        }
+        .video__title {
+            font-size: 22px;
+            font-weight: 300;
+        }
+        .video__views {
+            font-size: 14px;
+        }
+        .video__description {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 15px;
+        }
+    }
+    .video__comments{
+        margin-top: 2.5rem;
+        .video__coment-number {
+            font-size: 1.8rem;;
+        }
     }
 }
