@@ -42,6 +42,14 @@ $ npm install webpack webpack-cli
 # autostart the server when code changes
 
 $ npm start # after babel, npm start is shortcut of command node index.js
+
+$ npm install webpack webpack-cli
+# create webpack.config.js file in root dir
+$ npm install --save-dev extract-text-webpack-plugin@next
+# @ 쓰면 exact version install, @next beta version or sth
+$ npm install css-loader postcss-loader sass-loader
+$ npm install autoprefixer
+$ npm install node-sass
 ```
 
 ### 2.6
@@ -82,3 +90,10 @@ $ net stop mongodb
 
 ### expected schedule
 - https://www.notion.so/sunny1103/33b5bedfddd9420b8600d842297e3b3c?v=168c896bb89f483fba454d279e68b147
+
+## 4.0 webpack
+- module bundler
+- modules with dependencies --> webpack --> static assets (old, normal scripts)
+- we want to change scss to css, extract the text and save it into css file
+    - [extract text plugin: webpack](https://github.com/webpack-contrib/extract-text-webpack-plugin)
+- [postcss](www.postcss.org), [autoprefixer](https://github.com/postcss/autoprefixer)
