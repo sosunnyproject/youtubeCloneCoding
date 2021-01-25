@@ -88,9 +88,6 @@ $ net stop mongodb
 - regex101.com
 - for mongodb data 
 
-### expected schedule
-- https://www.notion.so/sunny1103/33b5bedfddd9420b8600d842297e3b3c?v=168c896bb89f483fba454d279e68b147
-
 ## 4.0 webpack
 - module bundler
 - modules with dependencies --> webpack --> static assets (old, normal scripts)
@@ -101,3 +98,10 @@ $ net stop mongodb
     - 파일 바껴도 계속 자동으로 run 하게끔 수정
 - babel-loader
 - [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill)
+
+
+### expected schedule
+- https://www.notion.so/sunny1103/33b5bedfddd9420b8600d842297e3b3c?v=168c896bb89f483fba454d279e68b147
+
+### random
+- MOV files don't work well : sound only

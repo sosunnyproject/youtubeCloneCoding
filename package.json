@@ -39,6 +39,7 @@
     "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore 'scss' ",
     "dev:assets": "WEBPACK_ENV=development webpack -w",
     "build:assets": "WEBPACK_ENV=production webpack",
+    // "start": "node index.js",
     "start": "nodemon --exec babel-node init.js --delay 2 --ignore 'scss' ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
