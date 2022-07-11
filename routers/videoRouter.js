@@ -3,7 +3,7 @@ import routes from "../routes";
 import {
     getUpload,
     postUpload,
-    videoDetail,
+    watch,
     getEditVideo,
     postEditVideo,
     deleteVideo
@@ -17,7 +17,7 @@ videoRouter.get(routes.upload, getUpload);
 videoRouter.post(routes.upload, uploadVideoMiddleware, postUpload);
 
 // Video Detail
-videoRouter.get(routes.videoDetail(), videoDetail);
+videoRouter.get(routes.videoDetail(), watch);
 
 // Edit Video
 videoRouter.get(routes.editVideo(), getEditVideo);

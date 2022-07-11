@@ -2,7 +2,7 @@ import routes from "../routes";
 import Video from "../models/Video";
 
 // trending
-export const home = async (req, res) => {
+export const trending = async (req, res) => {
     // look for video - need async await
     try {
         const videos = await Video.find({}).sort({ _id: -1 }); // find all videos
@@ -48,13 +48,13 @@ export const postUpload = async (req, res) => {
 }
 
 // watch
-export const videoDetail = async (req, res) => {
+export const watch = async (req, res) => {
     const {
         params: { id }
     } = req;
     try {
         const video = await Video.findById(id);
-        res.render("videoDetail", { pageTitle: video.title, video });
+        res.render("watch", { pageTitle: video.title, video });
     } catch (error) {
         console.log(error);
         res.redirect(routes.home);
