@@ -1,6 +1,7 @@
 import routes from "../routes";
 import Video from "../models/Video";
 
+// trending
 export const home = async (req, res) => {
     // look for video - need async await
     try {
@@ -46,6 +47,7 @@ export const postUpload = async (req, res) => {
     res.redirect(routes.videoDetail(newVideo.id));
 }
 
+// watch
 export const videoDetail = async (req, res) => {
     const {
         params: { id }

@@ -35,3 +35,7 @@ export const editProfile = (req, res) => res.render("editProfile", { pageTitle: 
 export const changePassword = (req, res) => res.render("changePassword", { pageTitle: "change password"});
 
 export const userDetail = (req, res) => res.render("userDetail", { pageTitle: "user detail"});
+
+export const remove = (req, res) => res.send("Remove User");
+
+export const see = (req, res) => res.send("See User");

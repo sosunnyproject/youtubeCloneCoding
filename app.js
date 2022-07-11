@@ -1,5 +1,4 @@
-// package.json > "scripts" : node index.js 커맨드를 npm start 커맨드로 대체
-// this is my server
+// express server
 
 // const express = require('express');  // before babel
 import express from "express";      // after babel

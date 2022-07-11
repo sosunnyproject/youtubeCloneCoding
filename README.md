@@ -15,14 +15,10 @@
 
 ## Tutorials
 - https://academy.nomadcoders.co/p/javascript-fullstack-from-zero-to-hero
-- ~ #2.5 (2020/2/26)
-- ~ #3.1 (2020/3/7)
 
 ## Basic 
-- NodeJS: javascript outside of browser
-- Front: JS, Back: Node, Django, Laravel, ...
-- NodeJS: real-time, data processing, CRUD works
-- Django: hardware stuff, video processing, youtube/netflix videos, access memory/RAM powers
+- Node JS, Express
+- MongoDB, Mongoose
 
 ## Setup
 ```bash
@@ -100,8 +96,5 @@ $ net stop mongodb
 - [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill)
 
 
-### expected schedule
-- https://www.notion.so/sunny1103/33b5bedfddd9420b8600d842297e3b3c?v=168c896bb89f483fba454d279e68b147
-
-### random
+## notes
 - MOV files don't work well : sound only
