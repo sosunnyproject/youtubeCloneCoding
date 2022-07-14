@@ -70,7 +70,7 @@ export const getEditVideo = async (req, res) => {
         res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
     } catch (error) {
         console.log(error);
-        res.redirect(routes.home);
+        res.status(404).render("404", {pageTitle: "Video not found"} );
     }
 }
 
@@ -84,7 +84,7 @@ export const postEditVideo = async (req, res) => {
         res.redirect(routes.videoDetail(id));
     } catch (error) {
         console.log(error);
-        res.redirect(routes.home);
+				res.status(404).render("404", {pageTitle: "Video not found"} );
     }
 }
 
