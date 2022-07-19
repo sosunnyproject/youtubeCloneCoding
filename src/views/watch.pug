@@ -6,7 +6,7 @@ block content
         .video__player
             video(src=`/${video.fileUrl}`)
         .video__info
-            a(href=routes.editVideo(video.id)) 
+            a(href=`/videos/${video.id}/edit`)=video.title 
                 button Edit video
             h5.video__title=video.title
             if video.views === 1

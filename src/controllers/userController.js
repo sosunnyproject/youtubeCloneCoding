@@ -1,5 +1,6 @@
 import routes from "../routes";
 import bcrypt from "bcrypt";
+import User from "../models/User";
 
 export const getJoin = (req, res) => {
     res.render("join", { pageTitle: "Join"});
@@ -37,7 +38,7 @@ export const getLogin = (req, res) => {
 
 	res.render("login", { pageTitle: "login"});
 }
-export const postLogin = (req, res) => {
+export const postLogin = async (req, res) => {
 		const { username, password } = req.body;
 		const user = await User.findOne({ username });
 		if(!user) {

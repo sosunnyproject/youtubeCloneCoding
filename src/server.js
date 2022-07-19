@@ -12,13 +12,20 @@ import globalRouter from "./routers/globalRouter";
 import apiRouter from "./routers/apiRouter";
 import routes from "./routes";
 import { localsMiddleware } from './middlewares';
+import dotenv from "dotenv";
+dotenv.config();
 
+const PORT = process.env.PORT || 4000;
 const app = express();
+const logger = morgan("dev");
 
 app.use(helmet());
 app.set("view engine", "pug");
-app.use("/uploads", express.static("uploads")); // goes to uploads folder directory
-app.use("/static", express.static("static"));
+
+console.log(process.cwd()+"\\src\\views");
+app.set("views", process.cwd() + "\\src\\views");
+// app.use("/uploads", express.static("uploads")); // goes to uploads folder directory
+// app.use("/static", express.static("static"));
 
 app.use(cookieParser());                 // cookies when userAuth
 
@@ -33,5 +40,12 @@ app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
 app.use(routes.api, apiRouter);
+
+
+const handleListening = () => {
+    console.log(`Listening on: http://localhost:${PORT}`);
+}
+
+app.listen(PORT, handleListening);
 
 export default app;

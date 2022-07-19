@@ -17,12 +17,12 @@ const VideoSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    },
-    comments: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment"
-    }]
+    }
+    // comments: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "Comment"
+    // }]
 })
 // console.log(VideoSchema.fileUrl, VideoSchema.title);
-const model = mongoose.model("Video", VideoSchema);
-export default model;
+const Video = mongoose.model("_Videos", VideoSchema);
+export default Video;
