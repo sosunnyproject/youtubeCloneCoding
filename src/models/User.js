@@ -13,6 +13,6 @@ userSchema.pre('save', async function() {
 	console.log(this.password);
 })
 
-const User = mongoose.model("_Users", userSchema);
+const User = mongoose.model("User", userSchema);
 
 export default User;

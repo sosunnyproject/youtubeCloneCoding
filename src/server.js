@@ -1,6 +1,7 @@
 // express server
 
 // const express = require('express');  // before babel
+import "./db";
 import express from "express";      // after babel
 import morgan from "morgan";
 import helmet from "helmet";

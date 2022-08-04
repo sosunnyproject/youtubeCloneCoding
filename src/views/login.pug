@@ -3,14 +3,13 @@ extends layouts/main
 block content
 		if errorMessage
 				span=errorMessage
-    .form-container
-        form(action=routes.login, method="post")
-            input(type="email", name="email", placeholder="Email", required=true)
-            input(type="password", name="password", placeholder="password", required=true)
-            input(type="submit", value="Log In")
-        include partials/socialLogin
+		.form-container
+				form(method="post")
+						input(type="email", name="email", placeholder="Email", required=true)
+						input(type="password", name="password", placeholder="password", required=true)
+						input(type="submit", value="Log In")
 		hr
 		div
-			span Don't have an account?
-			a(href="/join")
-					h3 Join
+				span Don't have an account?
+				a(href="/join")
+						h3 Join
