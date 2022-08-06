@@ -4,8 +4,12 @@ import Video from "../models/Video";
 // trending
 export const trending = async (req, res) => {
     // look for video - need async await
+
+    const videos = [{ id: 1, title: "aa", views: "1"}];
+    console.log(videos);
+
     try {
-        const videos = await Video.find({}).sort({ _id: -1 }); // find all videos
+        // const videos = await Video.find({}); // find all videos
         res.render("home", { pageTitle: "Home", videos });
     } catch (error) {
         console.log(error);

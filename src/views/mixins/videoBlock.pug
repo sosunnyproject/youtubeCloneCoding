@@ -1,7 +1,7 @@
 //- mixin is like a function
 mixin videoBlock(video = {})
-    .videoBlock
+    div
         a(href=routes.videoDetail(video.id))
-            video.videoBlock__thumbnail(src=video.videoFile, controls=true)
-            h4.videoBlock__title= video.title
-            h6.videoBlock__views= video.views
+            video(src=video.videoFile, controls=true)
+            h4= video.title
+            h6= video.views

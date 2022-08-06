@@ -8,4 +8,8 @@ block content
             //-     input(type="file", name="videoFile", id="file", required=true, accept="video/*")
             input(type="text", name="title", placeholder="Title")
             textarea(name="description", placeholder="Description")
+            input(placeholder="year", required, type="number" name="year")
+            input(placeholder="rating", required, type="number" name="rating")
+            input(placeholder="genres, separated by comma", type="text", name="genres")
+
             input(type="submit", value="upload video")

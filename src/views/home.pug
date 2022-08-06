@@ -2,11 +2,9 @@ extends layouts/main
 include mixins/videoBlock
 
 block content
-    .videos
-        each item in videos
-            +videoBlock({
-                id: item.id,
-                title: item.title,
-                views: item.views,
-                videoFile: item.fileUrl
-            })
+    form(action=routes.search, method="get")
+            input(type="text", placeholder="search by term...", name="term")
+
+    div
+        each video in videos
+            +videoBlock({video})

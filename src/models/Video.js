@@ -10,7 +10,7 @@ const VideoSchema = new mongoose.Schema({
         required: "Title is required"
     },
     description: String,
-    view: {
+    views: {
         type: Number,
         default: 0
     },
@@ -18,11 +18,11 @@ const VideoSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-		hashtags: [{ type: String }],
-		meta: {
-			views: Number,
-			rating: Number
-		}
+    hashtags: [{ type: String }],
+    meta: {
+        views: Number,
+        rating: Number
+    }
     // comments: [{
     //     type: mongoose.Schema.Types.ObjectId,
     //     ref: "Comment"

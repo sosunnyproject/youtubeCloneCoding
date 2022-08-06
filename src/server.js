@@ -41,7 +41,8 @@ app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
 app.use(routes.api, apiRouter);
-
+app.use("/uploads", express.static("uploads"));
+app.use("/assets", express.static("assets"));
 
 const handleListening = () => {
     console.log(`Listening on: http://localhost:${PORT}`);
