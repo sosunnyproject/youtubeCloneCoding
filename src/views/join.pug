@@ -2,7 +2,7 @@ extends layouts/main
 
 block content
 		if errorMessage
-				span=errorMessage
+				span.errorMessage=errorMessage
 		.form-container   
 				form(method="post")
 						input(type="text", name="name", placeholder="Full Name", required=true)

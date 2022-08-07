@@ -1,11 +1,19 @@
 import express from "express";
 import routes from "../routes";
-import { users, userDetail, editProfile, changePassword} from "../controllers/userController";
+import { getEdit, postEdit, startGithubLogin, finishGithubLogin, logout, getChangePassword, postChangePassword } from "../controllers/userController";
+import { uploadFiles, protectorMiddleware, publicOnlyMiddleware, localsMiddleware } from "../middlewares";
 
 const userRouter = express.Router();
 
-userRouter.get(routes.editProfile, editProfile);
-userRouter.get(routes.changePassword, changePassword);
-userRouter.get(routes.userDetail(), userDetail);
+userRouter.route("/change-password").all(protectorMiddleware).all(localsMiddleware).get(getChangePassword).post(postChangePassword);
+userRouter
+    .route("/edit")
+    .all(protectorMiddleware)
+    .all(localsMiddleware)
+    .get(getEdit)
+    .post(uploadFiles.single("avatar"), postEdit);
+userRouter.get("/github/start", publicOnlyMiddleware, startGithubLogin);
+userRouter.get("/github/finish", publicOnlyMiddleware, finishGithubLogin);
+userRouter.get("/logout", protectorMiddleware, logout);
 
 export default userRouter;

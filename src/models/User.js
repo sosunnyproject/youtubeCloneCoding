@@ -5,12 +5,14 @@ const userSchema = new mongoose.Schema({
 	name: {type: String, required: true},
 	email: {type: String, required: true, unique: true},
 	username: {type: String, required: true, unique: true},
-	password: {type: String, required: true},
+	password: {type: String},
+	githubOnly: {type: Boolean, default: false},
+	avatarUrl: String,
+	location: String
 });
 
 userSchema.pre('save', async function() {
 	this.password = await bcrypt.hash(this.password, 5);
-	console.log(this.password);
 })
 
 const User = mongoose.model("User", userSchema);

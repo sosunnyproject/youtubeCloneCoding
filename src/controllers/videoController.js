@@ -47,7 +47,7 @@ export const postUpload = async (req, res) => {
     });
 		// fileUrl: path,
 
-		console.log("/////// videoController: postUpload", newVideo);
+    console.log("/////// videoController: postUpload", newVideo);
     console.log("////// fileUrl: path: ", newVideo.fileUrl, newVideo.id);
     res.redirect(routes.videoDetail(newVideo.id));
 }
