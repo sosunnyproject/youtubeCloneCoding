@@ -2,6 +2,7 @@ import routes from "../routes";
 import bcrypt from "bcrypt";
 import User from "../models/User";
 import fetch from "cross-fetch";
+import Video from "../models/Video";
 
 export const getJoin = (req, res) => {
     res.render("join", { pageTitle: "Join"});
@@ -171,13 +172,12 @@ export const getEdit = (req, res) => res.render("editProfile", { pageTitle: "Edi
 export const postEdit = async (req, res) => {
 	const { 
 		session: {
-			user: { _id }
+			user: { _id, avatarUrl }
 		},
 		body: { name, email, username, location },
-		file
+		file,
 	} = req;
 
-	console.log(file);
 	const currData = req.session.user;
 
 	if(currData.email !== email) {
@@ -200,19 +200,27 @@ export const postEdit = async (req, res) => {
 			return res.status(400).render("editProfile", {
 				pageTitle: "Edit Profile", errorMessage: "This username is already taken"
 			});
-		} else {
-			
-			await User.findByIdAndUpdate(_id, {
-				name, email, username, location
-			});
 		}
 	}
 
 	// update browser session
-	req.session.user = {
-		...req.session.user,
-		name, email, username, location
-	}
+	const updatedUser = await User.findByIdAndUpdate(
+		_id, 
+		{ 
+			avatarUrl: file ? file.path : avatarUrl,
+			name, 
+			email, 
+			username, 
+			location 
+		}, 
+		{ new: true }
+	);
+	req.session.user = updatedUser;
+
+	// req.session.user = {
+	// 	...req.session.user,
+	// 	name, email, username, location
+	// }
 	return res.redirect("/users/edit");
 };
 export const getChangePassword = (req, res) => {
@@ -258,4 +266,14 @@ export const postChangePassword = async (req, res) => {
 
 // export const userDetail = (req, res) => res.render("userDetail", { pageTitle: "user detail"});
 
-export const see = (req, res) => res.send("See User");
+export const see = async (req, res) => {
+	const { id } = req.params;
+	const user = await User.findById(id).populate("videos");
+	if(!user) {
+		return res.status(404).render("404", { pageTitle: "User Not Found" });
+	}
+	return res.render("profile", { 
+		pageTitle: `${user.username} Profile`, 
+		user
+	});
+}

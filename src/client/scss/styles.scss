@@ -1,14 +1,69 @@
 @import "./variables";
 
+body {
+    background-color: black;
+    color: white;
+}
+
 nav {
     margin-bottom: 20px;
+    text-transform: uppercase;
+}
+a {
+    color: greenyellow;
+}
+
+button {
+    color: greenyellow;
+    border: none;
+    color: black;
+    text-transform: uppercase;
+}
+
+
+span {
+    margin: 0 1rem;
+}
+
+form {
+    margin-bottom: 2rem;
+}
+
+hr {
+    margin: 1.6rem 0;
+}
+
+img {
+    margin: 0.5rem 0.5rem;
 }
 
 span.header {
-    font-size: larger;
+    font-size: 3rem;
+    font-weight: 800;
 }
 
 .errorMessage {
     color: red;
     font-weight: 700;
+}
+
+
+.inputBtn {
+    background-color: greenyellow;
+    color: black;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#commentForm textarea{
+    display: inline-block;
+}
+
+#commentForm button {
+    display: inline-block;
+    padding: 0.5rem;
+    font-size: small;
+    background-color: greenyellow;
+    color: black;
 }

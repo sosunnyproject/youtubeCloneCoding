@@ -14,10 +14,7 @@ import globalRouter from "./routers/globalRouter";
 import apiRouter from "./routers/apiRouter";
 import routes from "./routes";
 import { localsMiddleware } from './middlewares';
-import dotenv from "dotenv";
-dotenv.config();
 
-const PORT = process.env.PORT || 4000;
 const app = express();
 const logger = morgan("dev");
 
@@ -50,19 +47,11 @@ app.use(bodyParser.json());              // what content is the user sending to 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(localsMiddleware);
-
-// .get --> .use if you use router.js
-app.use(routes.home, globalRouter);
-app.use(routes.users, userRouter);
-app.use(routes.videos, videoRouter);
-app.use(routes.api, apiRouter);
 app.use("/uploads", express.static("uploads"));
 app.use("/assets", express.static("assets"));
-
-const handleListening = () => {
-    console.log(`Listening on: http://localhost:${PORT}`);
-}
-
-app.listen(PORT, handleListening);
+app.use("/", globalRouter);
+app.use("/users", userRouter);
+app.use("/videos", videoRouter);
+app.use("/api", apiRouter);
 
 export default app;

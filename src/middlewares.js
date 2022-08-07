@@ -1,7 +1,6 @@
 import routes from "./routes";
 import multer from "multer";
 
-const multerVideo = multer({ dest: "uploads/videos/" });
 export const localsMiddleware = (req, res, next) => {
     res.locals.siteName = "WeTube";
     res.locals.routes = routes;
@@ -30,5 +29,15 @@ export const publicOnlyMiddleware = (req, res, next) => {
     }
 }
 
-export const uploadFiles = multer({ dest: "uploads/" });
-export const uploadVideoMiddleware = multerVideo.single("videoFile");
+export const avatarUploadMiddleware = multer({ 
+    dest: "uploads/avatars/", 
+    limits: {
+        fileSize: 3000000,
+    }
+});
+export const videoUploadMiddleware = multer({ 
+    dest: "uploads/videos/", 
+    limits: {
+        fileSize: 10000000,
+    },
+});

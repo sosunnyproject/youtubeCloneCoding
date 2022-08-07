@@ -13,8 +13,8 @@
   },
   "homepage": "https://github.com/sosunnyproject/youtubeCloneCoding#readme",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js",
-    "assets": "webpack --config webpack.config.js"
+    "dev:server": "nodemon",
+    "dev:assets": "webpack"
   },
   "dependencies": {
     "autoprefixer": "^9.7.4",

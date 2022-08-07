@@ -6,6 +6,11 @@ const CommentSchema = new mongoose.Schema({
         type: String,
         required: "Text is required"
     },
+    owner: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        required: true, 
+        ref: "User" 
+    },
     createdAt: {
         type: Date,
         default: Date.now
@@ -16,5 +21,5 @@ const CommentSchema = new mongoose.Schema({
     }
 })
 
-const model = mongoose.model("Comment", CommentSchema);
-export default model;
+const Comment = mongoose.model("Comment", CommentSchema);
+export default Comment;

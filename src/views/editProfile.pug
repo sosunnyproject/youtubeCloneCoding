@@ -6,11 +6,17 @@ block content
     form(method="post" enctype="multipart/form-data")
         label(for="avatar") Avatar
         input(type="file", id="avatar", name="avatar" accept="image/*")
+        img(src="/" + loggedInUser.avatarUrl, width="100", height="100")
+        hr
+        label(for="Name") Name
         input(type="text", placeholder="Name", name="name", value=loggedInUser.name)
+        label(for="Username") Username
         input(type="text", placeholder="Username", name="username", value=loggedInUser.username)
+        label(for="Email") Email
         input(type="email", placeholder="Email", name="email", value=loggedInUser.email)
+        label(for="Location") Location
         input(type="text", placeholder="Location", name="location", value=loggedInUser.location)
-        input(type="submit", value="Update Profile")
+        input(type="submit", value="Update Profile").inputBtn
         if !loggedInUser.githubOnly
             hr
             a(href=`/users/change-password`) Change Password &rarr;

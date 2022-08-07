@@ -1,15 +1,14 @@
 import routes from "../routes";
 import Video from "../models/Video";
+import User from "../models/User";
 
 // trending
 export const trending = async (req, res) => {
     // look for video - need async await
 
-    const videos = [{ id: 1, title: "aa", views: "1"}];
-    console.log(videos);
-
     try {
-        // const videos = await Video.find({}); // find all videos
+        const videos = await Video.find({}); // find all videos
+        console.log(videos);
         res.render("home", { pageTitle: "Home", videos });
     } catch (error) {
         console.log(error);
@@ -34,35 +33,42 @@ export const search = async (req, res) => {
 
 export const getUpload = (req, res) => res.render("upload", { pageTitle: "Upload" });
 export const postUpload = async (req, res) => {
+    const { user } = req.session;
     const {
-        body: { title, description },
-        // file: { path }
+        body: { title, description, hashtags },
+        file
     } = req;
-    // To Do: Upload and save video
-    // console.log(body, file);
-    // res.render("upload", {pageTitle: "Upload"})
-    const newVideo = await Video.create({
-        title,
-        description
-    });
-		// fileUrl: path,
 
-    console.log("/////// videoController: postUpload", newVideo);
-    console.log("////// fileUrl: path: ", newVideo.fileUrl, newVideo.id);
-    res.redirect(routes.videoDetail(newVideo.id));
+    try {
+        const newVideo = await Video.create({
+            title,
+            description,
+            fileUrl: file.path,
+            owner: user._id,
+            hashtags: Video.formatHashtags(hashtags)
+        });
+        const owner = await User.findById(user._id);
+        owner.videos.push(newVideo._id);
+        owner.save();
+        return res.redirect("/");
+    } catch(error) {
+        console.log(error);
+        return res.status(400).render("upload", {
+            pageTitle: "Upload Video",
+            errorMessage: "Video cannot be uploaded"
+        });
+    }
 }
 
-// watch
 export const watch = async (req, res) => {
-    const {
-        params: { id }
-    } = req;
+    const { id } = req.params;
     try {
-        const video = await Video.findById(id);
-        res.render("watch", { pageTitle: video.title, video });
+        const video = await Video.findById(id).populate("owner");
+        console.log(video)
+        return res.render("watch", { pageTitle: video.title, video });
     } catch (error) {
         console.log(error);
-        res.redirect(routes.home);
+        return res.render("404", { pageTitle: "Video not found." });
     }
 }
 export const getEditVideo = async (req, res) => {
@@ -70,7 +76,6 @@ export const getEditVideo = async (req, res) => {
         params: { id }
     } = req;
     try {
-        console.log("///// getEditVideo id: ", id);
         const video = await Video.findById(id);
         res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
     } catch (error) {
@@ -82,14 +87,14 @@ export const getEditVideo = async (req, res) => {
 export const postEditVideo = async (req, res) => {
     const {
         params: { id },
-        body: { title, description }  // same parameter names as Video.js Model's properties
+        body: { title, description, hashtags }  // same parameter names as Video.js Model's properties
     } = req;
     try {
-        await Video.findOneAndUpdate({ _id: id }, { title, description });
-        res.redirect(routes.videoDetail(id));
+        await Video.findOneAndUpdate({ _id: id }, { title, description, hashtags });
+        return res.redirect(`/videos/${id}`);
     } catch (error) {
         console.log(error);
-				res.status(404).render("404", {pageTitle: "Video not found"} );
+        return res.status(404).render("404", {pageTitle: "Video not found"} );
     }
 }
 

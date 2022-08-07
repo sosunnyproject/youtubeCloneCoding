@@ -46,10 +46,8 @@ const routes = {
     upload: UPLOAD,
     videoDetail: id => {
         if (id) {
-            console.log("/////// routes.js videoDetail: ", id)
             return `/videos/${id}`;
         } else {
-            console.log("/////// routes.js videoDetail: none");
             return VIDEO_DETAIL;
         }
     },

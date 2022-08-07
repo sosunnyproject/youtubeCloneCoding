@@ -2,7 +2,7 @@ header
     
     span 
         a(href=routes.home)
-            i.fab.fa-youtube
+            i.fab.fa-youtube.fa-3x 
     span.header=pageTitle
     nav
         ul
@@ -15,6 +15,8 @@ header
                 li
                     a(href=`/videos/upload`) Upload
                 li
-                    a(href=`/users/edit`) Edit #{loggedInUser.name}'s Profile
+                    a(href=`/users/${loggedInUser._id}`) My Profile
+                li
+                    a(href=`/users/edit`) Edit Profile
                 li
                     a(href=`/users/logout`) Logout

@@ -4,7 +4,7 @@ include mixins/videoBlock
 block content
     form(action=routes.search, method="get")
             input(type="text", placeholder="search by term...", name="term")
-
+            input(type="submit", value="Search").inputBtn
     div
         each video in videos
-            +videoBlock({video})
+            +videoBlock(video)

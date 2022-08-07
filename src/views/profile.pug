@@ -1,0 +1,9 @@
+extends layouts/main
+include mixins/videoBlock
+
+block content
+    h1 #{user.username} Channel
+
+    div
+        each video in user.videos
+            +videoBlock(video)

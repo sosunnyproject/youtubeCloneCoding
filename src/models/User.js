@@ -8,7 +8,9 @@ const userSchema = new mongoose.Schema({
 	password: {type: String},
 	githubOnly: {type: Boolean, default: false},
 	avatarUrl: String,
-	location: String
+	location: String,
+	videos: [{ type: mongoose.Schema.Types.ObjectId, ref: "Video" }],
+	comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
 });
 
 userSchema.pre('save', async function() {

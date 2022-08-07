@@ -2,21 +2,42 @@ extends layouts/main
 include mixins/videoBlock
 
 block content
-    .video-detail__container 
-        .video__player
-            video(src=`/${video.fileUrl}`)
-        .video__info
+    div#videoContainer(data-id=video._id)
+        video(src="/" + video.fileUrl, controls, width=960)
+        div
             h5.video__title=video.title
             if video.views === 1
                 span.video__views 1 view
             else 
                 span.video__views #{video.views} views
-            p.video__description=video.description
+            div
+                p=video.description
             div 
-                a(href=`/videos/${video.id}/edit`)
-                    button Edit video
-        //- .video__comments 
-        //-     if video.comments.length === 1
-        //-         span.video__comment-number 1 comment
-        //-     else 
-        //-         span.video__comment-number #{video.comments.length} comments
+                small Uploaded by 
+                    a(href=`/users/${video.owner._id}`)=video.owner.username
+                a(href=`/users/${video.owner._id}`) 
+                    img(src="/" + video.owner.avatarUrl, width=50, height=50)
+                br
+                small=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
+                br
+                each tag in video.hashtags
+                    small=tag
+        
+        if loggedInUser
+            if String(video.owner._id) === String(loggedInUser._id) 
+                hr
+                a(href=`${video._id}/edit`) Edit video &rarr;
+                br 
+                a(href=`${video._id}/delete`) Delete video &rarr;
+                hr
+
+        div.video__comments
+            form.video__comment-form#commentForm
+                textarea(cols="100", rows="3", placeholder="write a nice comment")
+                button Add Comment
+            //- if video.comments.length === 1
+            //-     span.video__comment-number 1 comment
+            //- else 
+            //-     span.video__comment-number #{video.comments.length} comments
+block scripts
+    script(src="/assets/js/commentSection.js")
