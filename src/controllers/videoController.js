@@ -9,7 +9,6 @@ export const trending = async (req, res) => {
 
     try {
         const videos = await Video.find({}); // find all videos
-        console.log(videos);
         res.render("home", { pageTitle: "Home", videos });
     } catch (error) {
         console.log(error);

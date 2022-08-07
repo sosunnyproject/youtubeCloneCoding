@@ -9,7 +9,6 @@ export const getJoin = (req, res) => {
 }
 
 export const postJoin = async (req, res) => {
-    // console.log(req.body);   // able to get body via app.js/bodyparser
     const {name, username, email, password, password2, location} = req.body;
 		const pageTitle = "Join";
 		if(password !== password2) {
