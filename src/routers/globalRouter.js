@@ -12,7 +12,7 @@ globalRouter.get("/", trending);
 globalRouter.route("/join").all(publicOnlyMiddleware).get(getJoin).post(postJoin);
 globalRouter.route("/login").all(publicOnlyMiddleware).get(getLogin).post(postLogin);
 
-globalRouter.get(routes.search, search);
+globalRouter.get("/search", search);
 
 
 export default globalRouter;

@@ -2,8 +2,8 @@ extends layouts/main
 include mixins/videoBlock
 
 block content
-    form(action=routes.search, method="get")
-            input(type="text", placeholder="search by term...", name="term")
+    form(action="/search", method="GET")
+            input(type="text", placeholder="search by term...", name="keyword")
             input(type="submit", value="Search").inputBtn
     div
         each video in videos

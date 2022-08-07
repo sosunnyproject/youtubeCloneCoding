@@ -13,6 +13,7 @@
   },
   "homepage": "https://github.com/sosunnyproject/youtubeCloneCoding#readme",
   "scripts": {
+    "build:server": "babel src -d build",
     "dev:server": "nodemon",
     "dev:assets": "webpack"
   },
@@ -34,7 +35,8 @@
     "pug": "^3.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.9",
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
     "@babel/node": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
     "babel-loader": "^8.2.5",

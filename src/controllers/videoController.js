@@ -19,10 +19,11 @@ export const trending = async (req, res) => {
 
 export const search = async (req, res) => {
     const {
-        query: { term: searchingBy }
-    } = req;
-    // const {query: {term}} works too. ~~: searchingBy just to rename the var
+        keyword: searchingBy
+    } = req.query;
+
     let videos = [];
+
     try {
         videos = await Video.find({ title: { $regex: searchingBy, $options: "i" } }); //i = case-insensitive 
     } catch (error) {
