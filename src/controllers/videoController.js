@@ -1,6 +1,7 @@
 import routes from "../routes";
 import Video from "../models/Video";
 import User from "../models/User";
+import Comment from "../models/Comment";
 
 // trending
 export const trending = async (req, res) => {
@@ -63,8 +64,15 @@ export const postUpload = async (req, res) => {
 export const watch = async (req, res) => {
     const { id } = req.params;
     try {
-        const video = await Video.findById(id).populate("owner");
-        console.log(video)
+        const video = await Video.findById(id)
+                        .populate("owner")
+                        .populate({
+                            path: "comments",
+                            populate: {
+                                path: "owner",
+                                model: "User"
+                            }
+                        }).exec();
         return res.render("watch", { pageTitle: video.title, video });
     } catch (error) {
         console.log(error);
@@ -112,7 +120,7 @@ export const deleteVideo = async (req, res) => {
 
 // Register Video View
 
-export const postRegisterView = async (req, res) => {
+export const registerView = async (req, res) => {
     const {
         params: { id }
     } = req;
@@ -127,4 +135,33 @@ export const postRegisterView = async (req, res) => {
         res.end();
     }
 
+}
+
+export const createComment = async (req, res) => {
+    const {
+        session: {user},
+        body: {text},
+        params: { id }
+    } = req;
+
+    const video = await Video.findById(id);
+    if(!video) {
+        return res.sendStatus(404);
+    }
+    const comment = await Comment.create({
+        text, 
+        owner: user._id,
+        video: id,
+    });
+
+    // save comments to video db
+    video.comments.push(comment._id);
+    video.save();
+
+    // save comments to user db
+    const owner = await User.findById(user._id);
+    owner.comments.push(comment._id);
+    owner.save();
+    
+    return res.sendStatus(201);
 }

@@ -31,13 +31,23 @@ block content
                 a(href=`${video._id}/delete`) Delete video &rarr;
                 hr
 
-        div.video__comments
-            form.video__comment-form#commentForm
-                textarea(cols="100", rows="3", placeholder="write a nice comment")
-                button Add Comment
-            //- if video.comments.length === 1
-            //-     span.video__comment-number 1 comment
-            //- else 
-            //-     span.video__comment-number #{video.comments.length} comments
+        if loggedInUser
+            div
+                form.video__comment-form#commentForm(method="post")
+                    textarea(cols="100", rows="3", placeholder="write a nice comment")
+                    button Add Comment
+        div
+            h3 Comments
+            if video.comments.length === 1
+                span.video__comment-number 1 comment
+            else 
+                span.video__comment-number #{video.comments.length} comments
+            
+        div 
+            if video.comments.length > 0
+                each comment in video.comments
+                    div
+                        span=comment.owner.username
+                        span=comment.text 
 block scripts
     script(src="/assets/js/commentSection.js")

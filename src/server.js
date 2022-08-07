@@ -12,7 +12,6 @@ import userRouter from "./routers/userRouter";  // use {} to import something th
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
 import apiRouter from "./routers/apiRouter";
-import routes from "./routes";
 import { localsMiddleware } from './middlewares';
 
 const app = express();
@@ -25,6 +24,7 @@ console.log(process.cwd()+"\\src\\views");
 app.set("views", process.cwd() + "\\src\\views");
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // receive body payload as json. JSON.parse role
 
 // express session middleware
 // server gives browser a sessionId
@@ -49,9 +49,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(localsMiddleware);
 app.use("/uploads", express.static("uploads"));
 app.use("/assets", express.static("assets"));
-app.use("/", globalRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
 app.use("/api", apiRouter);
+app.use("/", globalRouter);
 
 export default app;
