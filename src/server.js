@@ -21,7 +21,7 @@ app.use(helmet());
 app.set("view engine", "pug");
 
 console.log(process.cwd()+"\\src\\views");
-app.set("views", process.cwd() + "\\src\\views");
+app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // receive body payload as json. JSON.parse role
